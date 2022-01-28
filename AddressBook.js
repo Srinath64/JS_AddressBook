@@ -162,18 +162,21 @@ function getCountOfContacts(count) {
     count += 1;
     return count;
 }
+function addContact(contact) {
+    if (!contactExists(contact.firstName, contact.lastName))
+        addressBookArray.push(contact);
+    else
+        throw "Contact is Present in the Address Book";
+}
 
-try{
-    addressBookArray.push(new Contact("Srinath", "Siva", "Bargur", "Krishnagiri", "Tamilnadu", "635 104", "91 9994982171", "sri@gmail.com"));
-}
-catch(e){
-    console.log(e);
-}
-try{
-    addressBookArray.push(new Contact("Richard", "Martin", "Medavakkam", "Chennai", "Tamilnadu", "603 203", "91 9944223871", "rich@gmail.com"));
-}
-catch(e){
-    console.log(e);
+let firstContact = new Contact("Srinath", "Siva", "Bargur", "Krishnagiri", "Tamilnadu", "635 104", "91 9994982171", "sri@gmail.com");
+let secondContact = new Contact("Richard", "Martin", "Medavakkam", "Chennai", "Tamilnadu", "603 203", "91 9944223871", "rich@gmail.com");
+
+try {
+    addressBookArray.push(firstContact);
+    addressBookArray.push(secondContact);
+} catch (e) {
+    console.error(e);
 }
 console.log(addressBookArray);
 
@@ -188,3 +191,12 @@ deleteContact("Richard","Martin")
 console.log(addressBookArray);
 
 console.log("\nCount of Contacts : " + addressBookArray.reduce(getCountOfContacts, 0));
+
+console.log("\nAdding Duplicate Contact");
+try {
+    addContact(secondContact);
+    addContact(firstContact);
+} catch (e) {
+    console.error(e);
+}
+console.log(addressBookArray);
