@@ -115,6 +115,8 @@ class Contact{
 }
 
 let addressBookArray = new Array();
+let contactsCityMap = new Map();
+let contactsStateMap = new Map();
 
 function contactExists(firstName, lastName) {
     return addressBookArray.some(contact => contact.firstName == firstName && contact.lastName == lastName);
@@ -185,6 +187,14 @@ function viewContactsByState(state){
     return addressBookArray.filter((contact) => contact.state == state);
 }
 
+function getCountOfContactsByCity(city){
+    return addressBookArray.filter((contact) => contact.city == city).length;
+}
+
+function getCountOfContactsByState(state){
+    return addressBookArray.filter((contact) => contact.state == state).length;
+}
+
 let firstContact = new Contact("Srinath", "Siva", "Bargur", "Krishnagiri", "Tamilnadu", "635 104", "91 9994982171", "sri@gmail.com");
 let secondContact = new Contact("Richard", "Martin", "Medavakkam", "Chennai", "Tamilnadu", "603 203", "91 9944223871", "rich@gmail.com");
 
@@ -228,3 +238,6 @@ console.log(viewContactsByCity("Krishnagiri"));
 
 console.log("\nView Contacts By State : Tamilnadu \n" );
 console.log(viewContactsByState("Tamilnadu"));
+
+console.log("\nNumber of Contacts residing in City : Krishnagiri = " + getCountOfContactsByCity("Krishnagiri"));
+console.log("\nNumber of Contacts residing in State : Tamilnadu = " + getCountOfContactsByState("Tamilnadu"));
