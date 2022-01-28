@@ -177,6 +177,14 @@ function searchContactByState(state) {
     return addressBookArray.filter((contact) => contact.state == state);
 }
 
+function viewContactsByCity(city){
+    return addressBookArray.filter((contact) => contact.city == city);
+}
+
+function viewContactsByState(state){
+    return addressBookArray.filter((contact) => contact.state == state);
+}
+
 let firstContact = new Contact("Srinath", "Siva", "Bargur", "Krishnagiri", "Tamilnadu", "635 104", "91 9994982171", "sri@gmail.com");
 let secondContact = new Contact("Richard", "Martin", "Medavakkam", "Chennai", "Tamilnadu", "603 203", "91 9944223871", "rich@gmail.com");
 
@@ -214,3 +222,9 @@ console.log(searchContactByCity("Chennai"));
 
 console.log("\nSearch Contact By State");
 console.log(searchContactByState("Tamilnadu"));
+
+console.log("\nView Contacts By City : Krishnagiri \n" );
+console.log(viewContactsByCity("Krishnagiri"));
+
+console.log("\nView Contacts By State : Tamilnadu \n" );
+console.log(viewContactsByState("Tamilnadu"));
