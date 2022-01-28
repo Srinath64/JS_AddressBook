@@ -114,10 +114,18 @@ class Contact{
     }
 }
 
+let addressBookArray = new Array();
+
 try{
-    let contact = new Contact("Srinath", "Siva", "Bargur", "Krishnagiri", "Tamilnadu", "635 104", "91 9994982171", "sri@gmail.com");
-    console.log(contact.toString());
+    addressBookArray.push(new Contact("Srinath", "Siva", "Bargur", "Krishnagiri", "Tamilnadu", "635 104", "91 9994982171", "sri@gmail.com"));
 }
 catch(e){
     console.log(e);
 }
+try{
+    addressBookArray.push(new Contact("Richard", "Martin", "Medavakkam", "Chennai", "Tamilnadu", "603 203", "91 9944223871", "rich@gmail.com"));
+}
+catch(e){
+    console.log(e);
+}
+console.log(addressBookArray);
