@@ -169,6 +169,14 @@ function addContact(contact) {
         throw "Contact is Present in the Address Book";
 }
 
+function searchContactByCity(city) {
+    return addressBookArray.filter((contact) => contact.city == city);
+}
+
+function searchContactByState(state) {
+    return addressBookArray.filter((contact) => contact.state == state);
+}
+
 let firstContact = new Contact("Srinath", "Siva", "Bargur", "Krishnagiri", "Tamilnadu", "635 104", "91 9994982171", "sri@gmail.com");
 let secondContact = new Contact("Richard", "Martin", "Medavakkam", "Chennai", "Tamilnadu", "603 203", "91 9944223871", "rich@gmail.com");
 
@@ -200,3 +208,9 @@ try {
     console.error(e);
 }
 console.log(addressBookArray);
+
+console.log("\nSearch Contact By City");
+console.log(searchContactByCity("Chennai"));
+
+console.log("\nSearch Contact By State");
+console.log(searchContactByState("Tamilnadu"));
